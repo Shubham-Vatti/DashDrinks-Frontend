@@ -2,19 +2,22 @@ import { Dimensions, StyleSheet, Text, View } from 'react-native'
 import React from 'react'
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import HomeScreen from '../Screens/BottomScreens/HomeScreen';
-import OrderScreen from '../Screens/BottomScreens/OrderScreen';
-import CartScreen from '../Screens/BottomScreens/CartScreen';
+// import OrderScreen from '../Screens/BottomScreens/OrderScreen';
+// import CartScreen from '../Screens/BottomScreens/CartScreen';
 import ProfileScreen from '../Screens/BottomScreens/ProfileScreen';
 import AntDesign from 'react-native-vector-icons/AntDesign'
+import Ionicons from 'react-native-vector-icons/Ionicons'
 import Feather from 'react-native-vector-icons/Feather'
 import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons'
 import FontAwesome5 from 'react-native-vector-icons/FontAwesome5'
 import { BlackColor, GreenColor, LightBlackColor } from '../Components/Colors';
+import CartScreen from '../Screens/BottomScreens/CartScreen';
+import LiquorScreens from '../Screens/BottomScreens/LiquorScreens'
 const { width, height } = Dimensions.get('window')
 const Bottom=createBottomTabNavigator();
 const BottomStack = () => {
   return (
-    <Bottom.Navigator screenOptions={{headerShown:false}}>
+    <Bottom.Navigator screenOptions={{headerShown:false,tabBarHideOnKeyboard:true}}>
         <Bottom.Screen name='Home' component={HomeScreen}
          options={
             {
@@ -29,11 +32,11 @@ const BottomStack = () => {
             }
         }
         />
-        <Bottom.Screen name='Orders' component={OrderScreen} 
+        <Bottom.Screen name='Liquors' component={LiquorScreens} 
          options={
             {
                 tabBarIcon: (tabinfo) => {
-                    return (tabinfo.focused ?<MaterialCommunityIcons name="truck-fast-outline" size={width*0.068} color={GreenColor}/> :<MaterialCommunityIcons name="truck-fast-outline" size={width*0.068} color={LightBlackColor}/>)
+                    return (tabinfo.focused ?<Ionicons name="wine-sharp" size={width*0.066} color={GreenColor}/> :<Ionicons name="wine-sharp" size={width*0.066}  color={LightBlackColor}/>)
                 },
                 // tabBarStyle:{borderTopColor:'red',borderTopWidth:1,},
                 tabBarActiveTintColor: BlackColor,

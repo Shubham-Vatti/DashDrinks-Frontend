@@ -1,6 +1,7 @@
 import { ActivityIndicator, Dimensions, Image, PixelRatio, Pressable, SafeAreaView, Text, TouchableOpacity, View } from "react-native"
 const { width, height } = Dimensions.get('window')
 import { BlackColor, GreenColor, LightBlackColor, LightGreenColor, LightLightBlackColor, WhiteColor } from '../Components/Colors'
+import { useState } from "react";
 const fontScale = PixelRatio.getFontScale();
 export const getFontSize = size => size / fontScale;
 
@@ -30,7 +31,19 @@ export const GreenButton = ({ Handlefunc, txt }) => {
     )
 }
 
-
+export const Accordion = ({ item,index }) => {
+    const [ShowFAQAns, SetShowFAQAns] = useState(false)
+    return (
+        <View style={{ borderColor: BlackColor, paddingHorizontal: width * 0.04, borderWidth: 0.4, paddingVertical: width * 0.04, marginVertical: width * 0.014, width: width * 0.92, borderRadius: width * 0.02 }}>
+            <TouchableOpacity style={{}}
+                onPress={() => SetShowFAQAns(!ShowFAQAns)}
+            >
+                <Text style={{ fontFamily: 'Poppins-Medium', color: BlackColor }}>{'Q'+index+') '+item.ques}</Text>
+            </TouchableOpacity>
+            {ShowFAQAns && <Text style={{ fontFamily: 'Poppins-Medium', color: BlackColor }}>{'Ans'+' = '+item.ans}</Text>}
+        </View>
+    )
+}
 export const AppLoading = () => {
     return (
         <View style={{ position: 'absolute', zIndex: 1000, backgroundColor: LightBlackColor, flex: 1, height, width, justifyContent: 'center', alignItems: "center" }}>

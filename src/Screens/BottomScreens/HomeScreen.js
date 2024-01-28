@@ -13,22 +13,22 @@ const Slide=[
     img:require('../../Assets/Frame.png')
   },
   {
-    id:1,
+    id:2,
     name:'Beer',
     img:require('../../Assets/Frame1.png')
   },
   {
-    id:1,
+    id:3,
     name:'Rum',
     img:require('../../Assets/Frame2.png')
   },
   {
-    id:1,
+    id:4,
     name:'Sparkler',
     img:require('../../Assets/Frame3.png')
   },
   {
-    id:1,
+    id:5,
     name:'Vodka',
     img:require('../../Assets/Frame4.png')
   },
@@ -156,20 +156,21 @@ const HomeScreen = () => {
             data={LiquorSlide}
             renderItem={({item})=>{
               return(
-                <TouchableOpacity style={{marginVertical:width*0.02,borderColor:BlackColor,borderWidth:0.4,paddingVertical:width*0.03,borderRadius:width*0.02}}>
-                  <View style={{flexDirection:'row',alignItems:"center"}}>
+                <TouchableOpacity style={{marginVertical:width*0.02,borderColor:BlackColor,borderWidth:0.4,borderRadius:width*0.02}}>
+                  <View style={{flexDirection:'row',alignItems:"center",paddingVertical:width*0.03}}>
                     <View>
                       <Image source={item.img} style={{width:width*0.24,height:width*0.24,resizeMode:'contain'}}/>
                     </View>
                     <View style={{width:width*0.65}}>
                       <Text style={{fontFamily:'Poppins-SemiBold',color:BlackColor,fontSize:getFontSize(16)}}>{item.name}</Text>
                       <Text style={{fontFamily:'Poppins-Medium',color:LightBlackColor}}>{item.quantity+'ml'+' | '+item.bottle_type+' | '+item.Alcohol_per+'%'}</Text>
-                      <View style={{flexDirection:'row',alignItems:"center",justifyContent:'space-between'}}>
                       <Text style={{fontFamily:'Poppins-SemiBold',color:GreenColor,fontSize:getFontSize(20)}}>&#8377;{' '+item.price}</Text>
                       {(item.Stock_left<=10)&&<Text style={{fontFamily:'Poppins-Regular',color:RedColor,fontSize:getFontSize(12)}}>{item.Stock_left} left in Stock</Text>}
-                      </View>
                     </View>
                   </View>
+                      <TouchableOpacity style={{backgroundColor:GreenColor,alignSelf:"flex-end",paddingVertical:width*0.02,borderBottomRightRadius:width*0.02,paddingHorizontal:width*0.02,borderTopLeftRadius:width*0.02,position:"absolute",bottom:0}}>
+                        <Text style={{color:WhiteColor,fontFamily:'Poppins-Medium'}}>Add to Cart</Text>
+                      </TouchableOpacity>
                 </TouchableOpacity>
               )
             }}

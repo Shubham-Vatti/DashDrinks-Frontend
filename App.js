@@ -13,7 +13,7 @@ const App = () => {
     //   <AccountApproval/>
     // </View>
     <NavigationContainer>
-      <BottomStack/>
+      <AuthStack/>
     </NavigationContainer>
   )
 }
